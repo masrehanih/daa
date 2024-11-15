@@ -1,0 +1,31 @@
+@startuml
+!define RECTANGLE class
+
+start
+:Pasien Mengisi Formulir Registrasi;
+:Verifikasi Data Pasien;
+if (Data Valid?) then (yes)
+  :Status Diterima;
+  :Akses Layanan Medis;
+  :Pasien Mengajukan Permohonan Layanan Medis;
+  :Verifikasi Ketersediaan Jadwal Dokter;
+  if (Dokter Tersedia?) then (yes)
+    :Jadwal Diberikan ke Pasien;
+    :Dokter/Admin Mengakses Data Medis Pasien;
+    :Pembaruan Data Medis (Tambah/Ubah/Hapus);
+    :Data Tersimpan dalam Sistem;
+    :Simpan Data Medis Pasien dalam Sistem;
+    :Akses Riwayat Medis oleh Dokter/Perawat;
+    :Tampilkan Riwayat Medis;
+    stop
+  else (no)
+    :Layanan Tidak Tersedia;
+    :Notifikasi ke Pasien;
+    stop
+  endif
+else (no)
+  :Status Ditolak;
+  :Notifikasi Penolakan;
+  stop
+endif
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+actor Pasien
+actor Admin
+actor Dokter
+actor Perawat
+
+rectangle "Sistem Manajemen Data Pasien Rumah Sakit" {
+  usecase "Registrasi Pasien" as UC1
+  usecase "Verifikasi Data Pasien" as UC2
+  usecase "Notifikasi Status Registrasi" as UC3
+  usecase "Mengajukan Permohonan Layanan Medis" as UC4
+  usecase "Pengecekan Ketersediaan Jadwal Dokter" as UC5
+  usecase "Memberikan Jadwal Pemeriksaan" as UC6
+  usecase "Manajemen Data Medis Pasien" as UC7
+  usecase "Pembaruan Data Medis (Tambah/Ubah/Hapus)" as UC8
+  usecase "Melihat Riwayat Medis Pasien" as UC9
+  usecase "Simpan Data Medis Pasien" as UC10
+}
+
+Pasien --> UC1 : Mengisi Formulir Registrasi
+Pasien --> UC4 : Mengajukan Permohonan Layanan Medis
+Dokter --> UC5 : Memeriksa Ketersediaan Jadwal
+Dokter --> UC6 : Memberikan Jadwal Pemeriksaan
+Dokter --> UC7 : Mengelola Data Medis Pasien
+Dokter --> UC8 : Pembaruan Data Medis Pasien
+Perawat --> UC9 : Melihat Riwayat Medis Pasien
+Admin --> UC2 : Verifikasi Data Pasien
+Admin --> UC3 : Mengirim Notifikasi Status
+Admin --> UC7 : Mengelola Data Medis Pasien
+Admin --> UC8 : Pembaruan Data Medis Pasien
+Admin --> UC10 : Simpan Data Medis Pasien
+@enduml
